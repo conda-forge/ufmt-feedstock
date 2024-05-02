@@ -1,5 +1,5 @@
 {% set name = "ufmt" %}
-{% set version = "2.5.1" %}
+{% set version = "2.6.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ufmt-{{ version }}.tar.gz
-  sha256: af53400cbc0498d5d57f79bdf8c0e13df67f384ab38ab9881b15e4ceb04c5d64
+  sha256: 8d6e520699455cd2ff2714640c16af2ae8f305a747e17524b44625038ca41226
 
 build:
   noarch: python
