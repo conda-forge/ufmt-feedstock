@@ -6,19 +6,19 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ufmt-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ufmt-{{ version }}.tar.gz
   sha256: 72c9502915497678de9aeab8aa18604890f14f869f7f378dd26e2878bde84f13
 
 build:
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
-  number: 0
+  number: 1
   entry_points:
     - ufmt = ufmt.cli:main
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
     - pip
     - flit-core >=3,<4
     - black >=20.8b0
@@ -27,7 +27,7 @@ requirements:
     - tomlkit >=0.7.2
     - trailrunner >=1.2.1
   run:
-    - python >=3.7
+    - python >={{ python_min }}
     - black >=20.8b0
     - click >=8.0
     - libcst >=0.4.0
@@ -44,6 +44,7 @@ test:
     - pip check
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://ufmt.omnilib.dev
